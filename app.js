@@ -32,12 +32,11 @@ app.get("/home/:parameter",function(req,res){
 
 app.post("/addfriend",function(req,res){
   friends.push(req.body.newfriend);
-  res.send("you have reached the post route");
   //req.body contains details entered in post request
   //initially we get undefined because express does
   //automatically converts it into js object
   //to do that install (npm install body-parser --save)
-  console.log(req.body);
+  res.redirect("/friends");
 });
 
 
