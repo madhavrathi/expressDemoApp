@@ -5,9 +5,19 @@ var app = express();
 //telling express to use files inside public directory
 app.use(express.static("public"));
 
-//routes
+// routes
 app.get("/",function(req,res){
   res.send("This is HOME PAGE !");
+});
+
+app.get("/friends",function(req,res){
+  var friends = ["maddy" , "tom" , "Jack"
+                  , "chuck" , "bobby"];
+  res.render("friends.ejs",{friends:friends});
+});
+
+app.post("/addfriend",function(req,res){
+  res.send("you have reached the post route");
 });
 
 app.get("/home/:parameter",function(req,res){
